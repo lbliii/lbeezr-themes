@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Top Menu-->
+    {{ partial "head.html" . }}
+  <title>{{ .Title }}</title>
+</head>
+<body>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <!--Tag Generation-->
+  {{ partial "tags.html" . }}
+
+  <!--Next or Previous Page -->
+  {{ partial "next-previous-topic.html" . }}
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+
+<div>
+Previous:
+{{if .PrevInSection}}
+  <a href="{{.PrevInSection.Permalink}}">{{.PrevInSection.Title}}</a>
+{{end}}
+</div>
+<div>
+Next: 
+{{if .NextInSection}}
+  <a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}</a>
+{{end}}
+</div>

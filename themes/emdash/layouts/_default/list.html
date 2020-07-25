@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+   <!--Displays content if parent folder has _index.md -->
+ {{ if eq .Kind "section" }}
+  {{ .Content }}
+ {{end}}
+
+  <!--Displays List of Posts (RegularPages)-->
+  {{ if ne .Kind "term" }}
+    {{range .Site.RegularPages }}
+      <a href="{{.RelPermalink}}"><h2>{{.Title}}</h2></a> <p>{{ .Description}}</p> {{ partial "tags.html" . }}
+    {{ end }}
+  {{end}}
+
+  <!--Displays List of Posts Matching Tags -->
+
+{{ if eq .Kind "term" }}
+  {{ range  .Data.Pages}}
+    <a href="{{.RelPermalink}}"><h2>{{.Title}}</h2></a> <p>{{ .Description}}</p> {{ partial "tags.html" . }}
+    {{ end }}
+  {{end}}
+
+</body>
+</html>
